@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from './header'
+import Footer from './footer'
+import Content from './content'
 function App() {
   return (
     <div className="App">
-     <h1>MCDM</h1>
+     <Header />
+     <Content/>
+     <Footer />
     </div>
   );
 }
