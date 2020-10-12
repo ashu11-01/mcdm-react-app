@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './component/App';
+// import App from './component/App';
+import MethodInput from './MethodInput'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App/> */}
+    <MethodInput method="MAAU" description="Additive Weight utility"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
