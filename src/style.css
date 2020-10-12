@@ -1,0 +1,12 @@
+nav{
+    background-color: rgba(0, 0, 0, 0.74);
+    display: flex;
+    align-items: center;
+    color: white
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
