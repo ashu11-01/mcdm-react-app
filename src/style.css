@@ -1,12 +1,18 @@
 nav{
     background-color: rgba(0, 0, 0, 0.74);
+
     display: flex;
     align-items: center;
-    color: white
+    color: white;
+    min-height: 10vh;
 }
 
 .nav-link{
+    width: 70%;
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+    align-items: right;
     list-style: none;
+    font-size: x-large;
+
 }

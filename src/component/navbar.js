@@ -6,13 +6,14 @@ function Navbar(){
     return(
         
         <div className>
+            
             <nav>
-                <img src={logo} alt="" width="100" height="100"/>
+            <img src={logo} alt="" width="100" height="100"/>
                 <h1>{appName}</h1>
-                <ul>
-                    <li className="nav-link">Home</li>
-                    <li className="nav-link">About</li>
-                    <li className="nav-link">Contact</li>
+                <ul className="nav-link">
+                    <li >Home</li>
+                    <li >About</li>
+                    <li >Contact</li>
                 </ul>
             </nav>
            
