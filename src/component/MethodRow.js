@@ -1,5 +1,6 @@
 import React from 'react'
 import MethodTile from './MethodTile'
+
 class MethodRow extends React.Component{
     constructor(){
         super()
@@ -7,21 +8,12 @@ class MethodRow extends React.Component{
     }
 
     render(){
+        const tileItems = this.props.methods.map(item =>{
+            return<MethodTile name={item.name}/>
+        })
         return(
         <div>
-            <div className="row">
-              <div className="col-md-4">
-                    <MethodTile name={this.props.methods[0].name}/>
-              </div>
-
-              <div className="col-md-4">
-              <MethodTile name={this.props.methods[1].name}/>
-              </div>
-
-              <div className="col-md-4">
-              <MethodTile name={this.props.methods[2].name}/>
-              </div>
-            </div>
+            {tileItems}
         </div>
         )
     }

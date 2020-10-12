@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 class MethodTile extends React.Component{
     constructor(){
         super()
@@ -9,9 +9,12 @@ class MethodTile extends React.Component{
     }
 
     render(){
+      
         return(
         <div>
-            <a href=""><h2>{this.props.name}</h2></a>
+            <Link to={`${this.props.name}`}>
+            <h4>{this.props.name}</h4>
+            </Link>
         </div>
         )
     }
