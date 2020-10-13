@@ -16,3 +16,30 @@ nav{
     font-size: x-large;
 
 }
+
+.method-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    background-color: beige;
+    color: black;
+    align-items: center;
+    margin: 4vh;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .method-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .method-container {
+    padding: 2px 16px;
+  }
+
+.method-row{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}

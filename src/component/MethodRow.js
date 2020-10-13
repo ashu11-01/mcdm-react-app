@@ -9,10 +9,10 @@ class MethodRow extends React.Component{
 
     render(){
         const tileItems = this.props.methods.map(item =>{
-            return<MethodTile name={item.name}/>
+            return<MethodTile key={item.id} name={item.name} description={item.description} features={item.features} resources={item.resources}/>
         })
         return(
-        <div>
+        <div className="method-row">
             {tileItems}
         </div>
         )

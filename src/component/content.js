@@ -1,34 +1,13 @@
 import React from 'react'
 import MethodRow from './MethodRow'
+import methodList from '../MethodData'
 function Content(){
-    const methodList=[
-       [
-            {
-                name : "MAAU"
-            },
-            {
-                name : "TOPSIS"
-            },
-            {
-                name : "ELECTRE"
-            }
-        ],
-        [
-            {
-                name : "mTOPSIS"
-            },
-            {
-                name : "VIKTOR"
-            },
-            {
-                name : "Fuzzy TOPSIS"
-            }
-        ]
-    ]
+    console.log(methodList)
     return(
-        <div className="container" style={{backgroundColor: "#000000", color: "#d3d3d3", padding:20, textAlign: "center"}}>
-          <MethodRow methods={methodList[0]}/>
-          <MethodRow methods={methodList[1]}/>
+        <div className="container pb-2 pt-4">
+          
+          <MethodRow methods={methodList.slice(0,3)}/>
+          <MethodRow methods={methodList.slice(3,6)}/>
         </div>
     )
 }
