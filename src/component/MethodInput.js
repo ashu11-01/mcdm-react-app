@@ -7,14 +7,21 @@ class MethodInput extends React.Component{
             alternativeList : []
         }
         this.addNewAlternative = this.addNewAlternative.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+    
+    handleChange(event){
+        console.log(event)
+        // this.state.alternativeList[index].props.
     }
 
     addNewAlternative(){
         const alternativeList = this.state.alternativeList
         const index = alternativeList.length
         this.setState({
-            alternativeList : alternativeList.concat(<Alternative name={index}/>)}
+            alternativeList : alternativeList.concat(<Alternative key={index} name={index} value="" onChange={this.handleChange}/>)}
         )
+        // console.log(alternativeList)
     }
     render(){
         return(
