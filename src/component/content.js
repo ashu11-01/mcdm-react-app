@@ -2,7 +2,7 @@ import React from 'react'
 import MethodRow from './MethodRow'
 import methodList from '../MethodData'
 function Content(){
-    console.log(methodList)
+    // console.log(methodList)
     return(
         <div className="container pb-2 pt-4">
           
