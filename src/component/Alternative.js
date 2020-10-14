@@ -1,11 +1,20 @@
 import React from 'react'
 
 class Alternative extends React.Component{
-   
+   constructor(props){
+        super(props)
+        this.handleChange = this.handleChange.bind(this)
+   }
+
+   handleChange(event){
+        const text = event.target.value
+        this.props.onChange(this.props.id,text)
+   }
     render(){
+        // console.log(this.props.onChange)
         return(
             <div>
-                <input name={this.props.name} type="text" placeholder="Name" onChange={this.props.onChange()}/>
+                <input type="text" value={this.props.value} onChange={this.handleChange}/>
             </div>
         )
     }
