@@ -14,7 +14,7 @@ class Alternative extends React.Component{
         // console.log(this.props.onChange)
         return(
             <div>
-                <input type="text" value={this.props.value} onChange={this.handleChange}/>
+                <input type="text" value={this.props.value || ''} onChange={this.handleChange}/>
             </div>
         )
     }
