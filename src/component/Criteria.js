@@ -17,9 +17,9 @@ class Criteria extends React.Component{
         // console.log(this.props.onChange)
         return(
             <div>
-                <input type="text" id="0" placeholder="Name"  onChange={this.handleChange}/>
-                <input type="text" id="1" placeholder="Weight"  onChange={this.handleChange}/>
-                <input type="checkbox" id="2"  onChange={this.handleCheckbox}/>
+                <input type="text" id="name" placeholder="Name"  onChange={this.handleChange}/>
+                <input type="text" id="weight" placeholder="Weight"  onChange={this.handleChange}/>
+                <input type="checkbox" id="isNegative"  onChange={this.handleCheckbox}/>
             </div>
         )
     }

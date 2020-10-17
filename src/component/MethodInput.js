@@ -1,6 +1,7 @@
 import React from 'react'
 import Alternative from './Alternative'
 import Criteria from './Criteria'
+import DecisionMatrix from './DecisionMatrix'
 class MethodInput extends React.Component{
     constructor(){
         super()
@@ -59,23 +60,21 @@ class MethodInput extends React.Component{
     }
 
     handleCriteriaChange(fieldId, idx, value){
-        // console.log(fieldId, index, value,typeof(fieldId))
+        // console.log(fieldId, idx, value,typeof(fieldId))
         fieldId = parseInt(fieldId)
         // console.log(this.state.criteria)
         let array = this.state.criteria
-        for (let index = 0; index < 1; index++) {
+        for (let index = 0; index < array.length; index++) {
             if(index === fieldId){
                 let criteria = array[index] ? array[index] : ["","",false]
-                for (let j = 0; j <3; j++) {
-                   criteria[parseInt(idx)] = value
-                    
-                }
+                
+                criteria[idx] = value
                 array[index] = criteria
             }
             
         }
         this.setState({criteria : array})
-        console.log(this.state)
+        // console.log(this.state)
     }
 
     addNewCriteria(){
@@ -90,7 +89,7 @@ class MethodInput extends React.Component{
         </div>
         this.setState(prevState =>{
             return ({
-            criteria : prevState.criteria.concat(["","",false]),
+            criteria : prevState.criteria.concat({name:"",weight:"",isNegative:false}),
             criteriaList : prevState.criteriaList.concat(item)
         })
         })
@@ -113,25 +112,35 @@ class MethodInput extends React.Component{
     }
 
     render(){
-
+        // console.log(this.state.criteria)
         return(
         <div className="container">
            <h1>{this.props.match.params.method}</h1>
              <br/>
-             <div style={{visibility:"hidden"}}>
+             <div style={{visibility:"visible"}}>
              <h4>Alternatives</h4>
              {this.state.alternativeList} <br/>
             <button onClick={this.addNewAlternative}>+</button>
             {this.state.alternativeList.length >0 ? <button onClick={this.removeAlternative}>-</button> : null }
             <br/>
             </div>
-        {/* <p>{JSON.stringify(this.state)}</p>
-        <p>{JSON.stringify(this.state.alternativeList.length)}</p> */}
+
             <div>
             <h4>Criteria</h4>
             {this.state.criteriaList} <br/>
             <button onClick={this.addNewCriteria}>+</button>
             {this.state.criteriaList.length >0 ? <button onClick={this.removeCriteria}>-</button> : null }
+            <br/>
+            </div>
+
+            <br/>
+             <div style={{visibility:"visible"}}>
+             <h4>Decision Matrix</h4>
+             <DecisionMatrix 
+             method={this.props.match.params.method} 
+             alternatives={this.state.alternatives} 
+             criteria={this.state.criteria}
+             />
             <br/>
             </div>
         </div>
