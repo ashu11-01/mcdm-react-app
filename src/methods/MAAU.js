@@ -1,10 +1,5 @@
-class Maau{
-    matrix = [{}]
-    constructor(matrix){
-        this.matrix = matrix
-    }
-
-    calculate(){
-        console.log(this.matrix)
-    }
+function maau(matrix, alternative){
+    console.log(matrix,alternative)
 }
+
+export default maau

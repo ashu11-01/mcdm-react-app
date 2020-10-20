@@ -1,5 +1,5 @@
 import React from 'react'
-
+import maau from '../methods/MAAU'
 class DecisionMatrix extends React.Component{
    constructor(props){
         super(props)
@@ -16,6 +16,7 @@ class DecisionMatrix extends React.Component{
             matrix : initialMatrix
         }
         this.handleChange = this.handleChange.bind(this)
+        this.submit = this.submit.bind(this)
    }
 
    handleChange(event){
@@ -33,7 +34,8 @@ class DecisionMatrix extends React.Component{
    }
 
    submit(){
-
+        if(this.props.method === "MAAU")
+            maau(this.state.matrix, this.props.alternatives)
    }
 
     render(){
@@ -61,7 +63,7 @@ class DecisionMatrix extends React.Component{
                                 let criteriaIndex = index
                                 return(
                                     <td key={index}>
-                                        <input type="number" min="0" max="1" name={altIndex} id={criteriaIndex} value={this.state.matrix[altIndex][criteriaIndex] || "0"} onChange={this.handleChange}></input>
+                                        <input type="number"  name={altIndex} id={criteriaIndex} value={this.state.matrix[altIndex][criteriaIndex] || "0"} onChange={this.handleChange}></input>
                                     </td>
                                 )
                             })}
