@@ -35,11 +35,11 @@ class DecisionMatrix extends React.Component{
 
    submit(){
         if(this.props.method === "MAAU")
-            maau(this.state.matrix, this.props.alternatives)
+            maau(this.state.matrix, this.props.criteria)
    }
 
     render(){
-    console.log(this.state.matrix)
+    // console.log(this.state.matrix)
     const criteriaRowList = this.props.criteria.map((criteria,index) =>{
         return(
         <td key={index}>{criteria.name}</td>
@@ -63,7 +63,7 @@ class DecisionMatrix extends React.Component{
                                 let criteriaIndex = index
                                 return(
                                     <td key={index}>
-                                        <input type="number"  name={altIndex} id={criteriaIndex} value={this.state.matrix[altIndex][criteriaIndex] || "0"} onChange={this.handleChange}></input>
+                                        <input type="number"  name={altIndex} id={criteriaIndex} value={this.state.matrix[altIndex][criteriaIndex] || 0} onChange={this.handleChange}></input>
                                     </td>
                                 )
                             })}
