@@ -16,11 +16,18 @@ class Criteria extends React.Component{
     render(){
         // console.log(this.props.onChange)
         return(
-            <div>
+            <tr>
+                <td>
+                    {this.props.id + 1}
+                </td>
+                <td>
                 <input type="text" id="name" placeholder="Name"  onChange={this.handleChange}/>
-                <input type="number" min="0" max="1" id="weight" placeholder="Weight"  onChange={this.handleChange}/>
-                Is Negative?<input type="checkbox" id="isNegative"  onChange={this.handleCheckbox}/>
-            </div>
+                </td>
+                <td>
+                    <input type="number" min="0" max="1" style={{width : "100px"}} id="weight" placeholder="Weight"  onChange={this.handleChange}/>
+                </td>
+                <td>Is Negative?<input type="checkbox" id="isNegative"  onChange={this.handleCheckbox}/></td>
+            </tr>
         )
     }
 }

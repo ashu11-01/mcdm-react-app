@@ -81,14 +81,13 @@ class MethodInput extends React.Component{
 
     addNewCriteria(){
         const index = this.state.criteriaList.length || 0
-        const item = <div key={index}>
+        const item = 
             <Criteria key={index} id={index} 
             onChange={this.handleCriteriaChange} 
             name={""} 
             weight={""}
             isNegative={false}/>
-            <br/>
-        </div>
+            
         this.setState(prevState =>{
             return ({
             criteria : prevState.criteria.concat({name:"",weight:"",isNegative:false}),
@@ -132,10 +131,24 @@ class MethodInput extends React.Component{
             {this.state.alternativeList.length >0 ? <button onClick={this.removeAlternative}>-</button> : null }
             <br/>
             </div>
-
+            
+            <br/>
+            
             <div>
             <h4>Criteria</h4>
-            {this.state.criteriaList} <br/>
+            <table className="criteria-table" style={{textAlign : "center"}}>
+                <tbody>
+                    <tr>
+                        <td>No.</td>
+                        <td>Name</td>
+                        <td>Weight</td>
+                        <td>Negative?</td>
+                    </tr>
+                    {this.state.criteriaList}
+                </tbody>
+               
+            </table>
+             <br/>
             <button onClick={this.addNewCriteria}>+</button>
             {this.state.criteriaList.length >0 ? <button onClick={this.removeCriteria}>-</button> : null }
             <br/>
