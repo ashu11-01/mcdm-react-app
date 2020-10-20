@@ -18,7 +18,7 @@ class Criteria extends React.Component{
         return(
             <div>
                 <input type="text" id="name" placeholder="Name"  onChange={this.handleChange}/>
-                <input type="text" id="weight" placeholder="Weight"  onChange={this.handleChange}/>
+                <input type="number" min="0" max="1" id="weight" placeholder="Weight"  onChange={this.handleChange}/>
                 Is Negative?<input type="checkbox" id="isNegative"  onChange={this.handleCheckbox}/>
             </div>
         )
