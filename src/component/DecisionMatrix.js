@@ -3,15 +3,33 @@ import React from 'react'
 class DecisionMatrix extends React.Component{
    constructor(props){
         super(props)
+        let initialMatrix = []
+        for (let index = 0; index < this.props.alternatives.length; index++) {
+            initialMatrix.push([])
+           for (let idx = 0; idx < this.props.criteria.length; idx++) {
+               initialMatrix[index][idx] = 0
+               
+           }
+        }
+
         this.state={
-            matrix : []
+            matrix : initialMatrix
         }
         this.handleChange = this.handleChange.bind(this)
    }
 
    handleChange(event){
         const {name,id,value} = event.target
-       console.log(name,id,value)
+    //    console.log(name,id,value)
+    this.setState(prevState =>{
+        const updatedMatrix = prevState.matrix.map((row,index) => {
+            if(index === parseInt(name)){
+                row[id] = value
+            }
+            return row
+        })
+        return updatedMatrix
+    })
    }
 
    submit(){
@@ -19,7 +37,7 @@ class DecisionMatrix extends React.Component{
    }
 
     render(){
-
+    console.log(this.state.matrix)
     const criteriaRowList = this.props.criteria.map((criteria,index) =>{
         return(
         <td key={index}>{criteria.name}</td>
@@ -42,7 +60,9 @@ class DecisionMatrix extends React.Component{
                             {this.props.criteria.map((criteria,index)=>{
                                 let criteriaIndex = index
                                 return(
-                                    <td key={index}><input type="text" name={altIndex} id={criteriaIndex} onChange={this.handleChange}></input></td>
+                                    <td key={index}>
+                                        <input type="number" min="0" max="1" name={altIndex} id={criteriaIndex} value={this.state.matrix[altIndex][criteriaIndex] || "0"} onChange={this.handleChange}></input>
+                                    </td>
                                 )
                             })}
                         </tr>
