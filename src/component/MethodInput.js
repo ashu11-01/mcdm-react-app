@@ -9,7 +9,8 @@ class MethodInput extends React.Component{
             alternatives: [],
             alternativeList : [],
             criteria : [],
-            criteriaList : []
+            criteriaList : [],
+            showMatrix : false
         }
         this.addNewAlternative = this.addNewAlternative.bind(this)
         this.handleFieldChange = this.handleFieldChange.bind(this)
@@ -17,6 +18,7 @@ class MethodInput extends React.Component{
         this.handleCriteriaChange = this.handleCriteriaChange.bind(this)
         this.addNewCriteria = this.addNewCriteria.bind(this)
         this.removeCriteria = this.removeCriteria.bind(this)
+        this.toggleMatrix = this.toggleMatrix.bind(this)
     }
     
     handleFieldChange(fieldId, value){
@@ -111,6 +113,12 @@ class MethodInput extends React.Component{
         })
     }
 
+    toggleMatrix(){
+        this.setState(prevState => {
+            return ({showMatrix : !prevState.showMatrix})
+        })
+    }
+
     render(){
         // console.log(this.state.criteria)
         return(
@@ -134,15 +142,19 @@ class MethodInput extends React.Component{
             </div>
 
             <br/>
-             <div style={{visibility:"visible"}}>
-             <h4>Decision Matrix</h4>
-             <DecisionMatrix 
-             method={this.props.match.params.method} 
-             alternatives={this.state.alternatives} 
-             criteria={this.state.criteria}
-             />
-            <br/>
-            </div>
+        <button onClick={this.toggleMatrix}>{this.state.showMatrix ? "Hide Decision Matrix" : "Show Decision Matrix"}</button>
+            {this.state.showMatrix ? 
+                <div style={{visibility:"visible"}}>
+                <h4>Decision Matrix</h4>
+                <DecisionMatrix 
+                method={this.props.match.params.method} 
+                alternatives={this.state.alternatives} 
+                criteria={this.state.criteria}
+                />
+                <br/>
+                </div>
+            :
+            null}
         </div>
     )
     }
