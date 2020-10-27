@@ -34,8 +34,12 @@ class DecisionMatrix extends React.Component{
    }
 
    submit(){
+       let result =[]
         if(this.props.method === "MAAU")
-            maau(this.state.matrix, this.props.criteria)
+            result = maau(this.state.matrix, this.props.criteria)
+        alert("The best alternative is "+this.props.alternatives[result.indexOf(Math.max(...result))] +
+        " with score of "+ Math.max(...result) )
+        
    }
 
     render(){

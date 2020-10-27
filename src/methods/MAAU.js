@@ -9,7 +9,7 @@ function maau(matrix, criteria){
         }
         result[index] = sum
     }
-    console.log(result)
+    return result
 }
 
 export default maau
