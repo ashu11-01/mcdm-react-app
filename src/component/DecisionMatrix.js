@@ -1,5 +1,6 @@
 import React from 'react'
 import maau from '../methods/MAAU'
+import topsis from '../methods/TOPSIS'
 class DecisionMatrix extends React.Component{
    constructor(props){
         super(props)
@@ -37,6 +38,8 @@ class DecisionMatrix extends React.Component{
        let result =[]
         if(this.props.method === "MAAU")
             result = maau(this.state.matrix, this.props.criteria)
+        else if(this.props.method === "TOPSIS")
+            result=topsis(this.state.matrix, this.props.criteria)
         alert("The best alternative is "+this.props.alternatives[result.indexOf(Math.max(...result))] +
         " with score of "+ Math.max(...result) )
         
